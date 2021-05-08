@@ -1,11 +1,25 @@
+button {
+    padding:10px;
+    border: 0;
+    display: inline-block;
+    text-align: center;
+    text-decoration:none;
+    border-radius: 10px;
+    color:#000;
+    margin:1em;
+}
+button:hover {
+    opacity: 0.5;
+}
+
 .add{
-    color:rgb(101, 165, 187)
+    background-color:rgb(101, 165, 187)
 }
 
 .remove{
-    color:rgb(250, 125, 125)
+    background-color:rgb(250, 125, 125)
 }
 
 .search{
-    color:rgb(111, 196, 125)
+    background-color:rgb(111, 196, 125)
 }

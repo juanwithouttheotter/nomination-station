@@ -8,7 +8,7 @@ function NominationCard(props) {
             <img src={props.poster} alt={props.title + ' poster'}></img>
             <div>{props.title}</div>
             <div>{props.year}</div>
-            <Button btn='remove'/>
+            <Button btn='remove' name="remove" />
         </div>
     )
 }

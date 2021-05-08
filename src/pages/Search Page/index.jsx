@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import API from "../../api/moviesApi";
 import SearchBar from "../../components/SearchBar";
-import NominatonCard from "../../components/NominationCard";
+import MovieCard from "../../components/MovieCard";
 import Button from "../../components/Button";
 
 class Search extends Component {
@@ -40,7 +40,7 @@ class Search extends Component {
                 <div>
                     {renderedMovies.map((movie) => {
                         return(
-                            <NominatonCard 
+                            <MovieCard 
                                 key={movie.imdbID}
                                 id={movie.imdbID}
                                 poster={movie.Poster}
