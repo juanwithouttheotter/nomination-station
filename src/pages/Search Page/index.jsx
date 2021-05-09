@@ -27,6 +27,11 @@ class Search extends Component {
 
         console.log(this.state.movies);
     }
+    handleKeyDown = async (event) => {
+        if (event.key === "Enter") {
+            this.handleFormSearch(event);
+        }
+    }
 
     render(renderedMovies = this.state.movies) {
         return(
@@ -34,6 +39,7 @@ class Search extends Component {
                 <SearchBar 
                 inputValue={this.inputValue}
                 searchOnChange={this.searchOnChange}
+                onKeyDown={this.handleKeyDown}
                 placeholder="Which movie do you want to nominate?" 
                 />
                 <Button btn="search" btnAction={this.handleFormSearch} name="search"/>
