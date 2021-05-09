@@ -1,6 +1,7 @@
 // functional component
 import React from 'react';
 import Button from '../Button';
+import './MovieCard.css';
 
 function MovieCard(props){
     return (
