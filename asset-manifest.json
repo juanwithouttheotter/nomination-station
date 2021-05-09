@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/nomination-station/static/css/main.3e3efe2a.chunk.css",
+    "main.js": "/nomination-station/static/js/main.789dde46.chunk.js",
+    "main.js.map": "/nomination-station/static/js/main.789dde46.chunk.js.map",
+    "runtime-main.js": "/nomination-station/static/js/runtime-main.20342f79.js",
+    "runtime-main.js.map": "/nomination-station/static/js/runtime-main.20342f79.js.map",
+    "static/js/2.3802c3b5.chunk.js": "/nomination-station/static/js/2.3802c3b5.chunk.js",
+    "static/js/2.3802c3b5.chunk.js.map": "/nomination-station/static/js/2.3802c3b5.chunk.js.map",
+    "static/js/3.89857b77.chunk.js": "/nomination-station/static/js/3.89857b77.chunk.js",
+    "static/js/3.89857b77.chunk.js.map": "/nomination-station/static/js/3.89857b77.chunk.js.map",
+    "index.html": "/nomination-station/index.html",
+    "static/css/main.3e3efe2a.chunk.css.map": "/nomination-station/static/css/main.3e3efe2a.chunk.css.map",
+    "static/js/2.3802c3b5.chunk.js.LICENSE.txt": "/nomination-station/static/js/2.3802c3b5.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.20342f79.js",
+    "static/js/2.3802c3b5.chunk.js",
+    "static/css/main.3e3efe2a.chunk.css",
+    "static/js/main.789dde46.chunk.js"
+  ]
+}
