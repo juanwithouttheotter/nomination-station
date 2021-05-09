@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import API from "../../api/moviesApi";
+import Container from "../../components/Container";
 import SearchBar from "../../components/SearchBar";
 import MovieCard from "../../components/MovieCard";
 import Button from "../../components/Button";
