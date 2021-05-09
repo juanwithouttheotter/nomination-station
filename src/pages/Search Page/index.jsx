@@ -3,20 +3,24 @@ import API from "../../api/moviesApi";
 import Container from "../../components/Container";
 import SearchBar from "../../components/SearchBar";
 import MovieCard from "../../components/MovieCard";
+import NominationCard from "../../components/NominationCard";
 import Button from "../../components/Button";
 
 class Search extends Component {
     state = {
         inputValue: '',
-        movies: []
+        movies: [],
+        nominations: {}
+    }
+    async componentDidMount() {
+        const nominations = JSON.parse(localStorage.getItem("nominations"));
+        this.setState({nominations})
     }
 
     searchOnChange = (event) => {
         this.setState({
             inputValue: event.target.value
         });
-        // check our work, should delete
-        console.log(this.state);
     }
     handleFormSearch = async (event) => {
         event.preventDefault();
@@ -32,6 +36,22 @@ class Search extends Component {
             this.handleFormSearch(event);
         }
     }
+    removeNomie = (e) => {
+        const removeId = e.target.id;
+        const {nominations} = this.state;
+        for (let i= nominations.length -1; i>=0; i--) {
+            if(nominations[i] === removeId) nominations.splice(i,1);
+        }
+        this.setState({nominations});
+        localStorage.setItem("nominations", JSON.stringify(nominations));
+    }
+    addNomie = (e) => {
+        const newNomie = JSON.parse(e.target.dataset.obj);
+        const {nominations} = this.state;
+        nominations.push(newNomie);
+        this.setState({nominations});
+        localStorage.setItem("nominations", JSON.stringify(nominations));
+    }
 
     render(renderedMovies = this.state.movies) {
         return(
@@ -43,9 +63,23 @@ class Search extends Component {
                 placeholder="Which movie do you want to nominate?" 
                 />
                 <Button btn="search" btnAction={this.handleFormSearch} name="search"/>
+                {/* <div className="nominations">
+                    {this.state.nominations.map(nomie => {
+                        return(
+                        <NominationCard
+                            key={nomie.imdbID}
+                            id={nomie.imdbID}
+                            poster={nomie.Poster}
+                            title={nomie.Title}
+                            year={nomie.Year}
+                        />)
+                    })}
 
-                <div>
+                </div> */}
+
+                <div className="search-movies">
                     {renderedMovies.map((movie) => {
+                        console.log(movie);
                         return(
                             <MovieCard 
                                 key={movie.imdbID}
@@ -53,7 +87,8 @@ class Search extends Component {
                                 poster={movie.Poster}
                                 title={movie.Title}
                                 year={movie.Year}
-
+                                dataObj={JSON.stringify(movie)}
+                                addNomie={this.addNomie}
                             />
 
                         )

@@ -9,9 +9,9 @@ function MovieCard(props){
             <img src={props.poster} alt={props.title + ' poster'}></img>
             <div>{props.title}</div>
             <div>{props.year}</div>
-            <Button btn='add' name="Nominate" />
+            <Button btn='add' name="Nominate" btnAction={props.addNomie} dataObj={props.dataObj} />
         </div>
-    )
+    ) 
 }
 
 export default MovieCard;
