@@ -9,7 +9,7 @@ function MovieCard(props){
             <img src={props.poster} alt={props.title + ' poster'}></img>
             <div>{props.title}</div>
             <div>{props.year}</div>
-            <Button btn='add' name="Nominate" btnAction={props.addNomie} dataObj={props.dataObj} />
+            <Button btn={props.btnType} name={props.btnName} btnAction={props.btnAction} dataObj={props.dataObj} />
         </div>
     ) 
 }

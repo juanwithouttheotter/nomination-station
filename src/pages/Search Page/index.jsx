@@ -3,7 +3,6 @@ import API from "../../api/moviesApi";
 import Container from "../../components/Container";
 import SearchBar from "../../components/SearchBar";
 import MovieCard from "../../components/MovieCard";
-import NominationCard from "../../components/NominationCard";
 import Button from "../../components/Button";
 
 class Search extends Component {
@@ -72,6 +71,8 @@ class Search extends Component {
                             poster={nomie.Poster}
                             title={nomie.Title}
                             year={nomie.Year}
+                            btnType="remove"
+                            btnName="Delete"
                         />)
                     })}
 
@@ -87,8 +88,10 @@ class Search extends Component {
                                 poster={movie.Poster}
                                 title={movie.Title}
                                 year={movie.Year}
+                                btnType="add"
+                                btnName="Nominate"
+                                btnAction={this.addNomie}
                                 dataObj={JSON.stringify(movie)}
-                                addNomie={this.addNomie}
                             />
 
                         )
