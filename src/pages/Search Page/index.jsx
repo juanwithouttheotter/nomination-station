@@ -9,11 +9,14 @@ class Search extends Component {
     state = {
         inputValue: '',
         movies: [],
-        nominations: {}
+        nominations: []
     }
+
     async componentDidMount() {
-        const nominations = JSON.parse(localStorage.getItem("nominations"));
-        this.setState({nominations})
+        const nominations = JSON.parse(localStorage.getItem("nominations")); 
+        if(nominations){
+            this.setState({nominations});
+        }
     }
 
     searchOnChange = (event) => {
@@ -27,8 +30,6 @@ class Search extends Component {
         this.setState({
             movies: movies.Search
         });
-
-        console.log(this.state.movies);
     }
     handleKeyDown = async (event) => {
         if (event.key === "Enter") {
@@ -37,9 +38,10 @@ class Search extends Component {
     }
     removeNomie = (e) => {
         const removeId = e.target.id;
+        console.log(removeId);
         const {nominations} = this.state;
         for (let i= nominations.length -1; i>=0; i--) {
-            if(nominations[i] === removeId) nominations.splice(i,1);
+            if(nominations[i].imdbID === removeId) nominations.splice(i,1);
         }
         this.setState({nominations});
         localStorage.setItem("nominations", JSON.stringify(nominations));
@@ -62,10 +64,11 @@ class Search extends Component {
                 placeholder="Which movie do you want to nominate?" 
                 />
                 <Button btn="search" btnAction={this.handleFormSearch} name="search"/>
-                {/* <div className="nominations">
-                    {this.state.nominations.map(nomie => {
+                <div className="nominations">
+                    {
+                    this.state.nominations.map(nomie => {
                         return(
-                        <NominationCard
+                        <MovieCard
                             key={nomie.imdbID}
                             id={nomie.imdbID}
                             poster={nomie.Poster}
@@ -73,14 +76,15 @@ class Search extends Component {
                             year={nomie.Year}
                             btnType="remove"
                             btnName="Delete"
+                            btnAction={this.removeNomie}
                         />)
-                    })}
+                    })
+                    }
 
-                </div> */}
+                </div>
 
                 <div className="search-movies">
                     {renderedMovies.map((movie) => {
-                        console.log(movie);
                         return(
                             <MovieCard 
                                 key={movie.imdbID}
