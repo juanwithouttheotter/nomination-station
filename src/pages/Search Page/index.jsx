@@ -56,7 +56,7 @@ class Search extends Component {
 
     render(renderedMovies = this.state.movies) {
         return(
-            <div>
+            <Container display={"flex"} flow={"c-nw"} justifyContent={"c"} alignItems={"c"}>
                 <SearchBar 
                 inputValue={this.inputValue}
                 searchOnChange={this.searchOnChange}
@@ -64,7 +64,7 @@ class Search extends Component {
                 placeholder="Which movie do you want to nominate?" 
                 />
                 <Button btn="search" btnAction={this.handleFormSearch} name="search"/>
-                <div className="nominations">
+                <Container id="nominations" display={"flex"} flow={"r-nw"} justifyContent={"c"} alignItems={"c"}>
                     {
                     this.state.nominations.map(nomie => {
                         return(
@@ -81,7 +81,7 @@ class Search extends Component {
                     })
                     }
 
-                </div>
+                </Container>
 
                 <div className="search-movies">
                     {renderedMovies.map((movie) => {
@@ -102,7 +102,7 @@ class Search extends Component {
                     })}
                 </div>
 
-            </div>
+            </Container>
         )
     }
 
