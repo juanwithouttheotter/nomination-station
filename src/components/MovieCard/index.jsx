@@ -6,7 +6,7 @@ import './MovieCard.css';
 
 function MovieCard(props){
     return (
-        <ContainerItem id={props.id + "-Card"} flex={'default'}>
+        <ContainerItem id={props.id + "-Card"} flex={'default'} cls={props.btnName}>
             <img src={props.poster} alt={props.title + ' poster'}></img>
             <div>{props.title}</div>
             <div>{props.year}</div>

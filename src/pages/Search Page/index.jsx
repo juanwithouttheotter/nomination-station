@@ -1,9 +1,11 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import API from "../../api/moviesApi";
 import Container from "../../components/Container";
+import ContainerItem from "../../components/ContainerItem";
 import SearchBar from "../../components/SearchBar";
 import MovieCard from "../../components/MovieCard";
 import Button from "../../components/Button";
+import "./Search.css";
 
 class Search extends Component {
     state = {
@@ -13,9 +15,9 @@ class Search extends Component {
     }
 
     async componentDidMount() {
-        const nominations = JSON.parse(localStorage.getItem("nominations")); 
-        if(nominations){
-            this.setState({nominations});
+        const nominations = JSON.parse(localStorage.getItem("nominations"));
+        if (nominations) {
+            this.setState({ nominations });
         }
     }
 
@@ -39,54 +41,58 @@ class Search extends Component {
     removeNomie = (e) => {
         const removeId = e.target.id;
         console.log(removeId);
-        const {nominations} = this.state;
-        for (let i= nominations.length -1; i>=0; i--) {
-            if(nominations[i].imdbID === removeId) nominations.splice(i,1);
+        const { nominations } = this.state;
+        for (let i = nominations.length - 1; i >= 0; i--) {
+            if (nominations[i].imdbID === removeId) nominations.splice(i, 1);
         }
-        this.setState({nominations});
+        this.setState({ nominations });
         localStorage.setItem("nominations", JSON.stringify(nominations));
     }
     addNomie = (e) => {
         const newNomie = JSON.parse(e.target.dataset.obj);
-        const {nominations} = this.state;
+        const { nominations } = this.state;
         nominations.push(newNomie);
-        this.setState({nominations});
+        this.setState({ nominations });
         localStorage.setItem("nominations", JSON.stringify(nominations));
     }
 
     render(renderedMovies = this.state.movies) {
-        return(
+        return (
             <Container display={"flex"} flow={"c-nw"} justifyContent={"c"} alignItems={"c"}>
-                <SearchBar 
-                inputValue={this.inputValue}
-                searchOnChange={this.searchOnChange}
-                onKeyDown={this.handleKeyDown}
-                placeholder="Which movie do you want to nominate?" 
+                <div className="nominations">
+                    <h2>Your Nominations</h2>
+                    <Container id="nominees" display={"flex"} flow={"r-nw"} justifyContent={"c"} alignItems={"c"}>
+                        {
+                            this.state.nominations.map(nomie => {
+                                return (
+                                    <MovieCard
+                                        key={nomie.imdbID}
+                                        id={nomie.imdbID}
+                                        poster={nomie.Poster}
+                                        title={nomie.Title}
+                                        year={nomie.Year}
+                                        btnType="remove"
+                                        btnName="Delete"
+                                        btnAction={this.removeNomie}
+                                    />)
+                            })
+                        }
+
+                    </Container>
+                </div>
+
+                <SearchBar
+                    inputValue={this.inputValue}
+                    searchOnChange={this.searchOnChange}
+                    onKeyDown={this.handleKeyDown}
+                    placeholder="Search Moives..."
                 />
-                <Button btn="search" btnAction={this.handleFormSearch} name="search"/>
-                <Container id="nominations" display={"flex"} flow={"r-nw"} justifyContent={"c"} alignItems={"c"}>
-                    {
-                    this.state.nominations.map(nomie => {
-                        return(
-                        <MovieCard
-                            key={nomie.imdbID}
-                            id={nomie.imdbID}
-                            poster={nomie.Poster}
-                            title={nomie.Title}
-                            year={nomie.Year}
-                            btnType="remove"
-                            btnName="Delete"
-                            btnAction={this.removeNomie}
-                        />)
-                    })
-                    }
+                <Button btn="search" btnAction={this.handleFormSearch} name="search" />
 
-                </Container>
-
-                <div className="search-movies">
+                <Container id="search-movies" display={'flex'} flow={'r-w'} justifyContent={'c'} alignItems={'c'}>
                     {renderedMovies.map((movie) => {
-                        return(
-                            <MovieCard 
+                        return (
+                            <MovieCard
                                 key={movie.imdbID}
                                 id={movie.imdbID}
                                 poster={movie.Poster}
@@ -100,7 +106,7 @@ class Search extends Component {
 
                         )
                     })}
-                </div>
+                </Container>
 
             </Container>
         )

@@ -1,4 +1,22 @@
 img {
     height: auto;
-    max-width: 30%;
+    max-width: 100px;
+}
+
+.Delete {
+    border-style: groove;
+    border-width: 7px;
+    border-color: dodgerblue;
+    border-radius: 15px;
+    margin: 2px;
+    font-size: 3vmin;
+}
+
+.Nominate {
+    border-style: groove;
+    border-width: 7px;
+    border-color: firebrick;
+    border-radius: 15px;
+    margin: 2px;
+    font-size: 3vmin;
 }
