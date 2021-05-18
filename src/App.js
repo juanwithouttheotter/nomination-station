@@ -1,6 +1,5 @@
-// import logo from './logo.svg';
 import './App.css';
-import Search from './pages/Search Page'
+import Search from './pages/Search_Page'
 function App() {
   return (
     <div className="App">
