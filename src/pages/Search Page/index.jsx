@@ -80,33 +80,34 @@ class Search extends Component {
                     </Container>
                 </div>
                 <div id="searchBar">
-                <SearchBar
-                    inputValue={this.inputValue}
-                    searchOnChange={this.searchOnChange}
-                    onKeyDown={this.handleKeyDown}
-                    placeholder="Search Moives..."
-                />
-                <Button btn="search" btnAction={this.handleFormSearch} name="search" />
+                    <SearchBar
+                        inputValue={this.inputValue}
+                        searchOnChange={this.searchOnChange}
+                        onKeyDown={this.handleKeyDown}
+                        placeholder="Search Moives..."
+                    />
+                    <Button btn="search" btnAction={this.handleFormSearch} name="search" />
                 </div>
                 <div>
-                <Container id="search-movies" display={'flex'} flow={'r-w'} justifyContent={'c'} alignItems={'c'}>
-                    {renderedMovies.map((movie) => {
-                        return (
-                            <MovieCard
-                                key={movie.imdbID}
-                                id={movie.imdbID}
-                                poster={movie.Poster}
-                                title={movie.Title}
-                                year={movie.Year}
-                                btnType="add"
-                                btnName="Nominate"
-                                btnAction={this.addNomie}
-                                dataObj={JSON.stringify(movie)}
-                            />
+                    <Container id="search-movies" display={'flex'} flow={'r-w'} justifyContent={'c'} alignItems={'c'}>
+                        {renderedMovies.map((movie) => {
+                            return (
+                                <MovieCard
+                                    key={movie.imdbID}
+                                    id={movie.imdbID}
+                                    poster={movie.Poster}
+                                    title={movie.Title}
+                                    year={movie.Year}
+                                    btnType="add"
+                                    btnName="Nominate"
+                                    btnAction={this.addNomie}
+                                    dataObj={JSON.stringify(movie)}
+                                />
 
-                        )
-                    })}
-                </Container>
+                            )
+
+                        })}
+                    </Container>
                 </div>
 
             </Container>
