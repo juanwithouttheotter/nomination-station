@@ -1,4 +1,4 @@
-import React, { Children } from 'react';
+import React from 'react';
 import './Container.css';
 
 function Container({display, flow, justifyContent, alignItems, children, id}) {

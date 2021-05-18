@@ -1,6 +1,7 @@
 img {
     height: auto;
     max-width: 100px;
+    margin: 10px;
 }
 
 .Delete {
@@ -8,8 +9,11 @@ img {
     border-width: 7px;
     border-color: dodgerblue;
     border-radius: 15px;
-    margin: 2px;
-    font-size: 3vmin;
+    margin: 0.5%;
+    padding: 0.5%;
+    font-size: 0.88rem;
+    width: 11.2rem;
+    height: 19rem;
 }
 
 .Nominate {
@@ -17,6 +21,9 @@ img {
     border-width: 7px;
     border-color: firebrick;
     border-radius: 15px;
-    margin: 2px;
-    font-size: 3vmin;
+    margin: 0.5%;
+    padding: 0.5%;
+    font-size: 0.88rem;
+    width: 11.2rem;
+    height: 19rem;
 }

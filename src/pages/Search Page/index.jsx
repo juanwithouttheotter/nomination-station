@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import API from "../../api/moviesApi";
 import Container from "../../components/Container";
-import ContainerItem from "../../components/ContainerItem";
 import SearchBar from "../../components/SearchBar";
 import MovieCard from "../../components/MovieCard";
 import Button from "../../components/Button";
@@ -80,7 +79,7 @@ class Search extends Component {
 
                     </Container>
                 </div>
-
+                <div id="searchBar">
                 <SearchBar
                     inputValue={this.inputValue}
                     searchOnChange={this.searchOnChange}
@@ -88,7 +87,8 @@ class Search extends Component {
                     placeholder="Search Moives..."
                 />
                 <Button btn="search" btnAction={this.handleFormSearch} name="search" />
-
+                </div>
+                <div>
                 <Container id="search-movies" display={'flex'} flow={'r-w'} justifyContent={'c'} alignItems={'c'}>
                     {renderedMovies.map((movie) => {
                         return (
@@ -107,6 +107,7 @@ class Search extends Component {
                         )
                     })}
                 </Container>
+                </div>
 
             </Container>
         )
