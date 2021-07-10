@@ -1,8 +1,12 @@
 import React from 'react';
-import "./Button.css";
+import './Button.css';
 
-function Button(props){
-   return <button className={props.btn} onClick={props.btnAction} data-obj={props.dataObj} id={props.id}>{props.name}</button>
+function Button({ btn, btnAction, dataObj, id, name }) {
+        return (
+                <button type="button" className={btn} onClick={btnAction} data-obj={dataObj} id={id}>
+                        {name}
+                </button>
+        );
 }
 
 export default Button;

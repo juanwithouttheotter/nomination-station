@@ -1,8 +1,15 @@
-//functional component
 import React from 'react';
 
-function SearchBar (props) {
-    return <input type='text' value={props.inputValue} onChange={props.searchOnChange} placeholder={props.placeholder} onKeyDown={props.onKeyDown}></input>
+function SearchBar({ inputValue, searchOnChange, placeholder, onKeyDown }) {
+        return (
+                <input
+                        type="text"
+                        value={inputValue}
+                        onChange={searchOnChange}
+                        placeholder={placeholder}
+                        onKeyDown={onKeyDown}
+                />
+        );
 }
 
 export default SearchBar;

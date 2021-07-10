@@ -4,15 +4,15 @@ import Button from '../Button';
 import ContainerItem from '../ContainerItem';
 import './MovieCard.css';
 
-function MovieCard(props) {
-    return (
-        <ContainerItem id={props.id + "-Card"} flex={'default'} cls={props.btnName} alignSelf={'center'}>
-            <img src={props.poster} alt={props.title + ' poster'}></img>
-            <div>{props.title}</div>
-            <div>{props.year}</div>
-            <Button id={props.id} btn={props.btnType} name={props.btnName} btnAction={props.btnAction} dataObj={props.dataObj} />
-        </ContainerItem>
-    )
+function MovieCard({ id, btnName, poster, title, year, btnType, btnAction, dataObj }) {
+        return (
+                <ContainerItem id={`${id}-Card`} flex="default" cls={btnName} alignSelf="center">
+                        <img src={poster} alt={`${title} poster`} />
+                        <div>{title}</div>
+                        <div>{year}</div>
+                        <Button id={id} btn={btnType} name={btnName} btnAction={btnAction} dataObj={dataObj} />
+                </ContainerItem>
+        );
 }
 
 export default MovieCard;
